@@ -13,14 +13,27 @@ func main() {
 		return
 	}
 
+	command, exists := commands.Commands[os.Args[1]]
+
+	// Call help
 	switch os.Args[1] {
 	case "help", "-h", "--help":
 		commands.Help()
-	case "update":
-		commands.Update()
-	case "nix", "linux":
-		helpers.NotImplemented(os.Args[1])
-	default:
-		helpers.NotFound(os.Args[1])
+		return
 	}
+
+	// When command is not found
+	if !exists {
+		helpers.NotFound(os.Args[1])
+		return
+	}
+
+	// When command is not registered
+	if !command.Registered {
+		helpers.NotImplemented(os.Args[1])
+		return
+	}
+
+	helpers.Welcome()
+	command.Run()
 }

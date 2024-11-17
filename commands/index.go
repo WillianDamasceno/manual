@@ -14,7 +14,10 @@ func Help() {
 	}
 }
 
-// TODO: implement self update
 func Update() {
+	helpers.NotImplemented("update")
+}
+
+func Nix() {
 	helpers.NotImplemented("update")
 }

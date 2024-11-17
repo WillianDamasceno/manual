@@ -1,7 +1,6 @@
 package helpers
 
 import (
-	"fmt"
 	"manual/src"
 	"os"
 	"path/filepath"
@@ -10,10 +9,11 @@ import (
 func Welcome() {
 	exePath, err := os.Executable()
 	if err != nil {
-		fmt.Println("Error:", err)
+		println("Error:", err)
 	}
 
-	fmt.Println("Manual", src.Version, filepath.Dir(exePath), "\n")
+	println("Manual", src.Version, filepath.Dir(exePath))
+	println()
 }
 
 func WarnAboutHelp() {
@@ -21,13 +21,17 @@ func WarnAboutHelp() {
 }
 
 func NotFound(command string) {
-	fmt.Println("Command '", command, "' not found.")
+	print("Command '")
+	print(command)
+	println("' not found.")
 	WarnAboutHelp()
 	os.Exit(1)
 }
 
 func NotImplemented(command string) {
-	println("Sorry, command '", command, "' is not implemented yet.")
+	print("Sorry, command '")
+	print(command)
+	println("' is not implemented yet.")
 	println("Run 'manual update' to download to the latest version.")
 	os.Exit(1)
 }
