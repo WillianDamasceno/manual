@@ -4,5 +4,4 @@ This projectis made for helping me to remember how to do some tasks in linux tha
 
 ## Supported manuals
 
-- Linux
 - Nix
