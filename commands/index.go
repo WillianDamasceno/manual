@@ -1,6 +1,8 @@
 package commands
 
-import "manual/helpers"
+import (
+	"manual/helpers"
+)
 
 func Help() {
 	helpers.Welcome()
@@ -12,10 +14,6 @@ func Help() {
 	for _, command := range Commands {
 		println("  ", command.Name, "-", command.Description)
 	}
-}
-
-func Update() {
-	helpers.NotImplemented("update")
 }
 
 func Nix() {

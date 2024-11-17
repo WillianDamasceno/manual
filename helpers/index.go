@@ -1,6 +1,7 @@
 package helpers
 
 import (
+	"fmt"
 	"manual/src"
 	"os"
 	"path/filepath"
@@ -34,4 +35,12 @@ func NotImplemented(command string) {
 	println("' is not implemented yet.")
 	println("Run 'manual update' to download to the latest version.")
 	os.Exit(1)
+}
+
+func CheckSudo() {
+	// Check if the program is running as root
+	if os.Geteuid() != 0 {
+		fmt.Println("This operation requires elevated permissions. Please run the program with `sudo`.")
+		os.Exit(1)
+	}
 }

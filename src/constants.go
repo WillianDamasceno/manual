@@ -1,12 +1,18 @@
 package src
 
 const (
-	// Version of the program
-	Version = "0.0.2"
-	// Author of the program
-	Author = "Willian Damasceno"
-	// Email of the program
-	Email = ""
-	// Website of the program
-	Website = "https://github.com/WillianDamasceno/manual/"
+	Version    = "0.0.2"
+	Author     = "Willian Damasceno"
+	BinaryPath = "/usr/local/bin/manual"
+
+	GitHubUsername       = "WillianDamasceno"
+	GitHubRepositoryName = "manual"
+	GitHubRepositoryId   = GitHubUsername + "/" + GitHubRepositoryName
+
+	RepositoryUrl = "https://github.com/" + GitHubRepositoryId
+	ReleaseUrl    = "https://api.github.com/repos/" + GitHubRepositoryId + "/releases"
 )
+
+func GetBinaryUrl(tagName string) string {
+	return RepositoryUrl + "/releases/download/" + tagName + "/manual"
+}
