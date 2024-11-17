@@ -19,5 +19,10 @@ func Update() {
 }
 
 func Nix() {
-	helpers.NotImplemented("update")
+	println("How to list all packages:")
+	println("  nix-env -q")
+
+	println()
+	println("How uninstall a package:")
+	println("  nix-env -e <package>")
 }
