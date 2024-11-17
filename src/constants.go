@@ -1,7 +1,7 @@
 package src
 
 const (
-	Version    = "0.0.2"
+	Version    = "0.0.3"
 	Author     = "Willian Damasceno"
 	BinaryPath = "/usr/local/bin/manual"
 
