@@ -20,6 +20,8 @@ func Update() {
 	apiUrl := fmt.Sprintf(src.ReleaseUrl)
 	client := http.Client{}
 
+	print("Searching latest release...")
+
 	// Fetch GitHub releases
 	response, err := client.Get(apiUrl)
 	helpers.Error(err, "Error while fetching the latest release")
@@ -38,6 +40,8 @@ func Update() {
 
 	err = json.Unmarshal([]byte(body), &releases)
 	helpers.Error(err, "Error while parsing the response body")
+	
+	print("Downloading latest release...")
 
 	// Fetch new binary
 	binaryUrl := src.GetBinaryUrl(releases[0].TagName)
@@ -53,6 +57,8 @@ func Update() {
 	helpers.Error(err, "Error while reading the response body")
 	defer response.Body.Close()
 
+	print("Installing latest release...")
+
 	// Save binary into /tmp
 	file, err := saveBinaryToTempDir(body)
 	helpers.Error(err, "Error while saving the binary to a temporary directory")
@@ -63,6 +69,8 @@ func Update() {
 
 	// Set binary as executable
 	os.Chmod(src.BinaryPath, os.FileMode(0755))
+
+	print("Latest release installed successfully!")
 }
 
 func saveBinaryToTempDir(binaryData []byte) (*os.File, error) {
