@@ -24,3 +24,8 @@ func Nix() {
 	println("How uninstall a package:")
 	println("  nix-env -e <package>")
 }
+
+func Apt() {
+	println("How to list all packages")
+	println("  apt list --installed")
+}

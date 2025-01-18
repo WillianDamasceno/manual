@@ -20,4 +20,10 @@ var Commands = map[string]Command{
 		Run:         Nix,
 		Registered:  true,
 	},
+	"apt": {
+		Name:        "apt",
+		Description: "Apt common tasks",
+		Run:         Apt,
+		Registered:  true,
+	},
 }
