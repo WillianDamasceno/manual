@@ -29,3 +29,8 @@ func Apt() {
 	println("How to list all packages")
 	println("  apt list --installed")
 }
+
+func Git() {
+	println("How set a config value globaly")
+	println("  git config --global <config.name> <'value'>")
+}

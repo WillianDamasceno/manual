@@ -26,4 +26,10 @@ var Commands = map[string]Command{
 		Run:         Apt,
 		Registered:  true,
 	},
+	"git": {
+		Name:        "git",
+		Description: "Git common tasks",
+		Run:         Git,
+		Registered:  true,
+	},
 }
